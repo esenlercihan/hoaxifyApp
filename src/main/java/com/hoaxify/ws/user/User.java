@@ -21,7 +21,7 @@ public class User {
 	@GeneratedValue
 	private long id;
 	
-	@NotNull
+	@NotNull(message = "{hoaxify.constraint.username.NotNull.message}")
 	@Size(min = 4, max = 255)//hibernate aksini belirtmedigimiz surece string alanin degerini default olarak varchar(255) belirler.
 	@Column(unique = true)
 	private String username;
@@ -30,7 +30,7 @@ public class User {
 	@Size(min = 4, max = 255)
 	private String displayName;
 	
-	@NotNull
+	@NotNull(message = "{hoaxify.constraint.password.Pattern.message}")
 	@Size(min = 8, max = 255)
 	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
 	private String password;
